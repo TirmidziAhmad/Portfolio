@@ -1,50 +1,49 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
+import NavLinks from "@/components/NavLinks";
 
 export const metadata: Metadata = {
   title: "Tirmidzi Ahmad 👋",
   description: "Miji's Portfolio",
 };
 
+const footerLinks = [
+  { name: "Email", href: "/about" },
+  { name: "Linkedin", href: "/" },
+  { name: "Github", href: "/" },
+  { name: "Instagram", href: "/" },
+];
+
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`antialiased flex flex-col justify-center items-center min-h-screen`}>
-        <nav className="w-full flex justify-between items-center absolute top-0 px-5 md:px-10 md:pt-4 lg:px-15">
+      <body className="antialiased flex flex-col justify-center items-center min-h-screen">
+        <nav className="w-full flex justify-between items-center absolute top-0 px-5 md:px-10 py-4 z-50">
+          {/* logo */}
           <Link className="text-2xl" href="/">
-            MIJI<span className="text-sm pt-auto">®</span>
+            MIJI<span className="text-sm">®</span>
           </Link>
-          <div className="flex gap-7 justify-center items-center display-none">
-            <Link href="/about">About</Link>
-            <Link href="/">My Work</Link>
-            <Link href="/">Contact</Link>
-          </div>
+          {/* Link Navigasi */}
+          <NavLinks />
         </nav>
-        <div className="flex-grow flex flex-col justify-center items-center z-50 px-5 md:px-10 md:pt-4 lg:px-15">{children}</div>
+
+        {/* content */}
+        <div className="flex-grow flex flex-col justify-center items-center z-30 px-5 md:px-10">
+          {children}
+        </div>
+
+        {/* footer */}
         <footer className="w-full flex flex-col bg-[#EDEDED] h-[70vh] text-[#1E201E] justify-center items-center gap-10">
-          <button className="text-8xl font-bold pt-1 hover:underline">
-            <a href="mailto:tirmidziahmad.work@gmail.com">LETS TALK</a>
-          </button>
-          <div>
-            <div className="flex flex-col">
-              <button>
-                <a href="mailto:tirmidziahmad.work@gmail.com">Email</a>
-              </button>
-              <button>
-                <a href="https://www.linkedin.com/in/tirmidziahmad/">Linkedin</a>
-              </button>
-              <button>
-                <a href="https://github.com/TirmidziAhmad">Github</a>
-              </button>
-              <button>
-                <a href="https://www.instagram.com/tirmidziahmd/">Instagram</a>
-              </button>
-            </div>
+          <a href="mailto:tirmidziahmad.work@gmail.com">LETS TALK</a>
+          <div className="flex flex-col items-center">
+            {footerLinks.map((item) => (
+              <Link key={item.name} href={item.href}>
+                {item.name}
+              </Link>
+            ))}
           </div>
         </footer>
       </body>

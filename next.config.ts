@@ -1,19 +1,10 @@
-const isGithubActions = process.env.GITHUB_ACTIONS || false;
-
-let assetPrefix = '';
-let basePath = '';
-
-if (isGithubActions) {
-  const repo = process.env.GITHUB_REPOSITORY?.replace(/.*?\//, '') || 'default-repo';
-  assetPrefix = `/${repo}/`;
-  basePath = `/${repo}`;
-}
-
-module.exports = {
-  output: 'export',
-  assetPrefix,
-  basePath,
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  output: "export", // You can remove this if you're not doing static export
   images: {
-    unoptimized: true,
+    unoptimized: true, // Only if you're not using next/image optimization (can remove if not needed)
   },
 };
+
+module.exports = nextConfig;

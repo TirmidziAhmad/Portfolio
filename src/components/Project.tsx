@@ -1,5 +1,3 @@
-import React from "react";
-
 const project = [
   {
     title: "Rice Disease Detection",
@@ -23,9 +21,9 @@ const project = [
 
 function Project() {
   return (
-    <>
+    <div>
       <h2 className="text-lg md:text-6xl mb-3 text-center">Personal Project</h2>
-      <div className="flex flex-wrap gap-5">
+      <div className="flex flex-wrap gap-5 pt-2">
         {project.map((item, index) => (
           <div
             key={index}
@@ -44,7 +42,7 @@ function Project() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
