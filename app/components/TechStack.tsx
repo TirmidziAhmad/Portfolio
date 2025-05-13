@@ -40,22 +40,99 @@ const techstackData = [
 
 function TechStack() {
   return (
-    <>
-      <h2 className="text-lg md:text-6xl text-center">
+    <div className=" py-10 overflow-hidden">
+      <h2 className="text-lg md:text-6xl text-center mb-10">
         Tech I Have Experience With
       </h2>
-      <div className="flex flex-wrap gap-10 justify-center items-center mt-10">
-        {techstackData.map((item, index) => (
-          <div key={index} className="flex justify-center items-center">
-            <h1
-              className={`text-md md:text-4xl flex ${item.hoverColor} gap-2 justify-center text-slate-500`}
-            >
-              {item.name} {item.icon}
-            </h1>
+
+      {/* First row - scrolling left */}
+      <div className="relative w-full overflow-hidden mb-10">
+        <div className="flex flex-nowrap">
+          <div className="flex w-max items-center gap-10 animate-marquee-left whitespace-nowrap">
+            {techstackData.map((tech, index) => (
+              <div
+                key={`first-left-${index}`}
+                className="min-w-[150px] flex items-center justify-center text-slate-500 text-md md:text-4xl"
+              >
+                <span className={`flex items-center gap-2 ${tech.hoverColor}`}>
+                  {tech.name} {tech.icon}
+                </span>
+              </div>
+            ))}
           </div>
-        ))}
+          <div className="flex w-max items-center gap-10 animate-marquee-left whitespace-nowrap">
+            {techstackData.map((tech, index) => (
+              <div
+                key={`second-left-${index}`}
+                className="min-w-[150px] flex items-center justify-center text-slate-500 text-md md:text-4xl"
+              >
+                <span className={`flex items-center gap-2 ${tech.hoverColor}`}>
+                  {tech.name} {tech.icon}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </>
+
+      {/* Second row - scrolling right */}
+      <div className="relative w-full overflow-hidden">
+        <div className="flex flex-nowrap">
+          <div className="flex w-max items-center gap-10 animate-marquee-right whitespace-nowrap">
+            {techstackData.map((tech, index) => (
+              <div
+                key={`first-right-${index}`}
+                className="min-w-[150px] flex items-center justify-center text-slate-500 text-md md:text-4xl"
+              >
+                <span className={`flex items-center gap-2 ${tech.hoverColor}`}>
+                  {tech.name} {tech.icon}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="flex w-max items-center gap-10 animate-marquee-right whitespace-nowrap">
+            {techstackData.map((tech, index) => (
+              <div
+                key={`second-right-${index}`}
+                className="min-w-[150px] flex items-center justify-center text-slate-500 text-md md:text-4xl"
+              >
+                <span className={`flex items-center gap-2 ${tech.hoverColor}`}>
+                  {tech.name} {tech.icon}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <style jsx global>{`
+        .animate-marquee-left {
+          animation: marquee-left 30s linear infinite;
+        }
+
+        .animate-marquee-right {
+          animation: marquee-right 30s linear infinite;
+        }
+
+        @keyframes marquee-left {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+
+        @keyframes marquee-right {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+      `}</style>
+    </div>
   );
 }
 
