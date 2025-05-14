@@ -40,72 +40,56 @@ const techstackData = [
 
 function TechStack() {
   return (
-    <div className=" py-10 overflow-hidden">
+    <div className="py-10 w-full overflow-x-hidden">
       <h2 className="text-lg md:text-6xl text-center mb-10">
         Tech I Have Experience With
       </h2>
 
       {/* First row - scrolling left */}
       <div className="relative w-full overflow-hidden mb-10">
-        <div className="flex flex-nowrap">
-          <div className="flex w-max items-center gap-10 animate-marquee-left whitespace-nowrap">
-            {techstackData.map((tech, index) => (
+        <div className="flex w-max animate-marquee-left whitespace-nowrap">
+          {[...techstackData, ...techstackData, ...techstackData].map(
+            (tech, index) => (
               <div
-                key={`first-left-${index}`}
-                className="min-w-[150px] flex items-center justify-center text-slate-500 text-md md:text-4xl"
+                key={`left-${index}`}
+                className="inline-flex items-center justify-center px-8 text-slate-500 text-md md:text-4xl"
               >
-                <span className={`flex items-center gap-2 ${tech.hoverColor}`}>
+                <span
+                  className={`flex items-center gap-2 hover:text-white transition-all duration-300 hover:scale-110 hover:drop-shadow-lg`}
+                >
                   {tech.name} {tech.icon}
                 </span>
               </div>
-            ))}
-          </div>
-          <div className="flex w-max items-center gap-10 animate-marquee-left whitespace-nowrap">
-            {techstackData.map((tech, index) => (
-              <div
-                key={`second-left-${index}`}
-                className="min-w-[150px] flex items-center justify-center text-slate-500 text-md md:text-4xl"
-              >
-                <span className={`flex items-center gap-2 ${tech.hoverColor}`}>
-                  {tech.name} {tech.icon}
-                </span>
-              </div>
-            ))}
-          </div>
+            )
+          )}
         </div>
       </div>
 
       {/* Second row - scrolling right */}
       <div className="relative w-full overflow-hidden">
-        <div className="flex flex-nowrap">
-          <div className="flex w-max items-center gap-10 animate-marquee-right whitespace-nowrap">
-            {techstackData.map((tech, index) => (
+        <div className="flex w-max animate-marquee-right whitespace-nowrap">
+          {[...techstackData, ...techstackData, ...techstackData].map(
+            (tech, index) => (
               <div
-                key={`first-right-${index}`}
-                className="min-w-[150px] flex items-center justify-center text-slate-500 text-md md:text-4xl"
+                key={`right-${index}`}
+                className="inline-flex items-center justify-center px-8 text-slate-500 text-md md:text-4xl"
               >
-                <span className={`flex items-center gap-2 ${tech.hoverColor}`}>
+                <span
+                  className={`flex items-center gap-2 hover:text-white transition-all duration-300 hover:scale-110 hover:drop-shadow-lg`}
+                >
                   {tech.name} {tech.icon}
                 </span>
               </div>
-            ))}
-          </div>
-          <div className="flex w-max items-center gap-10 animate-marquee-right whitespace-nowrap">
-            {techstackData.map((tech, index) => (
-              <div
-                key={`second-right-${index}`}
-                className="min-w-[150px] flex items-center justify-center text-slate-500 text-md md:text-4xl"
-              >
-                <span className={`flex items-center gap-2 ${tech.hoverColor}`}>
-                  {tech.name} {tech.icon}
-                </span>
-              </div>
-            ))}
-          </div>
+            )
+          )}
         </div>
       </div>
 
       <style jsx global>{`
+        html,
+        body {
+          overflow-x: hidden;
+        }
         .animate-marquee-left {
           animation: marquee-left 30s linear infinite;
         }
@@ -119,13 +103,13 @@ function TechStack() {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-100%);
+            transform: translateX(-50%);
           }
         }
 
         @keyframes marquee-right {
           0% {
-            transform: translateX(-100%);
+            transform: translateX(-50%);
           }
           100% {
             transform: translateX(0);

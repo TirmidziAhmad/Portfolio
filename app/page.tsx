@@ -5,6 +5,7 @@ import TechStack from "./components/TechStack";
 import Project from "./components/Project";
 import { motion, useAnimation } from "framer-motion";
 import { ReactNode } from "react";
+import { Typewriter } from "react-simple-typewriter";
 
 const textVariant = {
   hidden: { opacity: 0, y: 20 },
@@ -66,7 +67,19 @@ export default function Home() {
               variants={textVariant}
               className="text-slate-400 text-xs md:text-xl"
             >
-              FULLSTACK DEV | FRONT END DEV
+              <Typewriter
+                words={[
+                  "FrontEnd Developer",
+                  "Fullstack Web Developer",
+                  "Wordpress Developer",
+                ]}
+                loop={0}
+                cursor
+                cursorStyle="\"
+                typeSpeed={90}
+                deleteSpeed={60}
+                delaySpeed={1500}
+              />
             </motion.p>
           </AnimatedSection>
           <AnimatedSection>
