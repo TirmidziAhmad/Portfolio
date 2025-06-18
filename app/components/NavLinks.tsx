@@ -6,11 +6,11 @@ import Link from "next/link";
 
 const links = [
   { name: "About", href: "/about" },
-  { name: "My Work", href: "/" },
-  { name: "Contact", href: "/" },
+  { name: "My Work", href: "/work" },
+  { name: "Contact", href: "/contact" },
 ];
 
-export default function NavLinks() {
+function NavLinks() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -52,3 +52,4 @@ export default function NavLinks() {
     </div>
   );
 }
+export default NavLinks;

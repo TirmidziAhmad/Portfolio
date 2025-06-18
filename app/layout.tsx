@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
-import NavLinks from "./components/NavLinks";
 
 export const metadata: Metadata = {
   title: "Tirmidzi Ahmad 👋",
@@ -33,9 +32,6 @@ export default function RootLayout({
           <Link className="text-2xl" href="/">
             MIJI<span className="text-sm">®</span>
           </Link>
-
-          {/* Link Navigasi - kept original component */}
-          <NavLinks />
         </nav>
 
         {/* content - kept original styling */}
