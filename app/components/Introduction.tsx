@@ -57,7 +57,7 @@ function AnimatedSection({ children }: AnimatedSectionProps) {
 
 function Introduction() {
   return (
-    <div className="text-center space-y-4">
+    <div className="space-y-4">
       <AnimatedSection>
         <h2 className="text-base md:text-4xl lg:text-6xl">
           <span className="flex flex-wrap gap-2 items-center justify-center">
@@ -87,7 +87,7 @@ function Introduction() {
 
       <AnimatedSection>
         <h2 className="text-base md:text-4xl lg:text-6xl">
-          <span className="flex flex-wrap gap-2 items-center justify-center">
+          <span className="flex flex-wrap ">
             <motion.span variants={textVariant}>
               Experienced web developer
             </motion.span>
